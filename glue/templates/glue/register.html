@@ -1,0 +1,47 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/register.css'%}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="register">
+        <h3>Register Account</h3>
+        <form method="POST" action="" class="form" >
+            {%csrf_token%}
+                <div class="input-box">
+                    <input type="text" placeholder="Username" name="username">
+                
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email here" name="email">
+                   
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" name="password1">
+                
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Re-enter your password" name="password2">
+                    
+                </div>
+                <div class="input-box" id="error">
+                    {% for message in messages %}
+                    <h5>{{message}}</h5>
+                    {% endfor %}
+                    <button>Register</button>
+                </div>
+               
+                
+                 
+        </form>
+        <div class="text-box">
+            <p>Already have an account</p>
+            <a href="{%url 'login'%}">Login Here</a>
+        </div>
+    </div>
+</body>
+</html>
